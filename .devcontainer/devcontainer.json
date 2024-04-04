@@ -15,7 +15,8 @@
                 "helixquar.randomeverything",
                 "hoffs.dotnet-secret-explorer",
                 "mtxr.sqltools",
-                "mtxr.sqltools-driver-pg"
+                "mtxr.sqltools-driver-pg",
+                "humao.rest-client"
             ]
         }
     }

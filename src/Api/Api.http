@@ -3,4 +3,13 @@
 GET {{Api_HostAddress}}/
 Accept: application/json
 
-###
+### signup
+#@signup
+POST {{Api_HostAddress}}/signup
+Content-Type: application/json
+Accept: application/json
+
+{
+    "username": "test-{{$timestamp}}",
+    "password": "test"
+}

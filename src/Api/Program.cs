@@ -17,8 +17,17 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapGet("/", () => "Pithee");
+// change to get from post body instead of query-string
+app.MapPost(
+    "/signup",
+    (Credentials user) => Results.Created(
+        uri: $"/users/{user.Username}",
+        value: user)
+);
 
 app.Run();
 
 // make the program available to the test project
 public partial class Program { }
+
+public record Credentials(string Username, string Password);

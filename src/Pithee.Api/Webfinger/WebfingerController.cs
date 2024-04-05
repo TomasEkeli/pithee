@@ -4,7 +4,7 @@ namespace Pithee.Api.Webfinger;
 
 [Route(".well-known/webfinger")]
 public class WebfingerController(
-    IWebFingerHandler handler)
+    IWebFingerHandler _handler)
     : ControllerBase
 {
     [HttpGet]
@@ -14,7 +14,7 @@ public class WebfingerController(
     public async Task<IActionResult> Get(
         [FromQuery] string resource)
     {
-        var webfinger = await handler
+        var webfinger = await _handler
             .GetWebfinger(resource);
 
         Response.ContentType = "application/jrd+json";

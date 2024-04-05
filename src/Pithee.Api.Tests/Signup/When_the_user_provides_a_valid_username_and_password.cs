@@ -36,10 +36,15 @@ public class When_the_user_provides_a_valid_username_and_password
     public async Task It_responds_with_the_new_user()
     {
         var response = await _client.PostAsync("/signup", _content);
-        var content = await response.Content.ReadFromJsonAsync<Credentials>();
+        var content = await response.Content.ReadFromJsonAsync<Response>();
 
-        content.Should().Be(_payload);
+        content
+            !.Username
+            .Should()
+            .Be(_payload.Username);
     }
 
     record Credentials(string Username, string Password);
+
+    record Response(string Username);
 }

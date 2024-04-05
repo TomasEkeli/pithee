@@ -1,8 +1,10 @@
+using Pithee.Api.Signup;
 using Pithee.Api.Webfinger;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddTransient<IWebFingerHandler, WebFingerHandler>();
+builder.Services.AddTransient<ISignupHandler, SignupHandler>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -21,13 +23,6 @@ app.UseHttpsRedirection();
 app.MapControllers();
 
 app.MapGet("/", () => "Pithee");
-
-app.MapPost(
-    "/signup",
-    (Credentials user) => Results.Created(
-        uri: $"/users/{user.Username}",
-        value: user)
-);
 
 app.Run();
 

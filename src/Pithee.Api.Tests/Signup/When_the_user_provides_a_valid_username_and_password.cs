@@ -1,7 +1,7 @@
 using System.Net;
 using System.Net.Http.Json;
 
-namespace Api.Tests.Signup;
+namespace Pithee.Api.Tests.Signup;
 
 public class When_the_user_provides_a_valid_username_and_password
     : Given_an_api

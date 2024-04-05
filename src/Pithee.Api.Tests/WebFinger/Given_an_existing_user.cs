@@ -1,6 +1,6 @@
 using System.Net.Http.Json;
 
-namespace Api.Tests.WebFinger;
+namespace Pithee.Api.Tests.WebFinger;
 
 public class When_the_user_has_been_registered : Given_an_api
 {

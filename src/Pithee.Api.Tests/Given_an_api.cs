@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.Testing;
 
-namespace Api.Tests;
+namespace Pithee.Api.Tests;
 
 public abstract class Given_an_api
 {

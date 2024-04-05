@@ -13,3 +13,7 @@ Accept: application/json
     "username": "test-{{$timestamp}}",
     "password": "test"
 }
+
+### webfinger
+#@webfinger
+GET {{Api_HostAddress}}/.well-known/webfinger?resource=acct:test-{{$timestamp}}@localhost

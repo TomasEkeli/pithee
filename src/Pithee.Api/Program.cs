@@ -1,13 +1,15 @@
+using Pithee.Api.Webfinger;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddTransient<IWebFingerHandler, WebFingerHandler>();
+builder.Services.AddControllers();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -16,6 +18,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.MapControllers();
+
 app.MapGet("/", () => "Pithee");
 
 app.MapPost(
@@ -23,26 +27,6 @@ app.MapPost(
     (Credentials user) => Results.Created(
         uri: $"/users/{user.Username}",
         value: user)
-);
-
-app.MapGet(
-    "/.well-known/webfinger",
-    (string resource) => Results.Json(
-        data: new
-        {
-            subject = resource,
-            links = new[]
-            {
-                new
-                {
-                    rel = "self",
-                    href = $"/users/{resource}",
-                    type = "application/activity+json"
-                }
-            }
-        },
-        contentType: "application/jrd+json"
-    )
 );
 
 app.Run();

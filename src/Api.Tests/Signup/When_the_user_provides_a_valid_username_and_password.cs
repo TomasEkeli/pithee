@@ -1,11 +1,10 @@
 using System.Net;
 using System.Net.Http.Json;
-using FluentAssertions;
 
 namespace Api.Tests.Signup;
 
 public class When_the_user_provides_a_valid_username_and_password
-    : Given_the_user_is_signing_up
+    : Given_an_api
 {
     readonly Credentials _payload;
     readonly JsonContent _content;

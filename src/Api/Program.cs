@@ -17,12 +17,20 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapGet("/", () => "Pithee");
-// change to get from post body instead of query-string
+
 app.MapPost(
     "/signup",
     (Credentials user) => Results.Created(
         uri: $"/users/{user.Username}",
         value: user)
+);
+
+app.MapGet(
+    "/.well-known/webfinger",
+    (string resource) => Results.Json(
+        data: new { resource },
+        contentType: "application/jrd+json"
+    )
 );
 
 app.Run();

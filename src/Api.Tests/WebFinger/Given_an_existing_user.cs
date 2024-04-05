@@ -1,3 +1,5 @@
+using System.Net.Http.Json;
+
 namespace Api.Tests.WebFinger;
 
 public class When_the_user_has_been_registered : Given_an_api
@@ -6,7 +8,7 @@ public class When_the_user_has_been_registered : Given_an_api
 
     public When_the_user_has_been_registered()
     {
-        _username = $"alice-{Guid.NewGuid():N}";
+        _username = $"alice@example.com";
     }
 
     [Fact]
@@ -34,4 +36,33 @@ public class When_the_user_has_been_registered : Given_an_api
             .Should()
             .Be("application/jrd+json");
     }
+
+    [Fact]
+    public async Task It_responds_with_a_webfinger_response_with_expected_subject()
+    {
+        var webfinger = await _client.GetFromJsonAsync<WebFingerResponse>(
+            $"/.well-known/webfinger?resource={_username}"
+        );
+
+        webfinger!.Subject.Should().Be(_username);
+    }
+
+    [Fact]
+    public async Task It_responds_with_a_webfinger_response_with_a_self_link()
+    {
+        var webfinger = await _client.GetFromJsonAsync<WebFingerResponse>(
+            $"/.well-known/webfinger?resource={_username}"
+        );
+
+        webfinger
+            !.Links
+            .First(l => l.Rel == "self")
+            .Href
+            .Should()
+            .Be($"/users/{_username}");
+    }
+
+    record Link(string Rel, string Href, string Type);
+
+    record WebFingerResponse(string Subject, Link[] Links);
 }

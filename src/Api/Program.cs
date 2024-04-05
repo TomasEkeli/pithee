@@ -28,7 +28,19 @@ app.MapPost(
 app.MapGet(
     "/.well-known/webfinger",
     (string resource) => Results.Json(
-        data: new { resource },
+        data: new
+        {
+            subject = resource,
+            links = new[]
+            {
+                new
+                {
+                    rel = "self",
+                    href = $"/users/{resource}",
+                    type = "application/activity+json"
+                }
+            }
+        },
         contentType: "application/jrd+json"
     )
 );

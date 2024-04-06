@@ -1,15 +1,16 @@
 using System.Net;
 using System.Net.Http.Json;
 
-namespace Pithee.Api.Tests.Signup;
+namespace Pithee.Api.Tests.Users.Signup;
 
-public class When_the_user_provides_a_valid_username_and_password
+public class With_valid_username_and_password
     : Given_an_api
 {
+    const string Path = "/signup";
     readonly Credentials _payload;
     readonly JsonContent _content;
 
-    public When_the_user_provides_a_valid_username_and_password()
+    public With_valid_username_and_password()
     {
         _payload = new("testuser", "password");
         _content = JsonContent.Create(_payload);
@@ -19,7 +20,7 @@ public class When_the_user_provides_a_valid_username_and_password
     [Fact]
     public async Task It_responds_with_a_201_created()
     {
-        var response = await _client.PostAsync("/signup", _content);
+        var response = await _client.PostAsync(Path, _content);
 
         response.StatusCode.Should().Be(HttpStatusCode.Created);
     }
@@ -27,7 +28,7 @@ public class When_the_user_provides_a_valid_username_and_password
     [Fact]
     public async Task It_responds_with_the_location_of_the_new_user()
     {
-        var response = await _client.PostAsync("/signup", _content);
+        var response = await _client.PostAsync(Path, _content);
 
         response.Headers.Location.Should().Be("/users/testuser");
     }
@@ -35,7 +36,7 @@ public class When_the_user_provides_a_valid_username_and_password
     [Fact]
     public async Task It_responds_with_the_new_user()
     {
-        var response = await _client.PostAsync("/signup", _content);
+        var response = await _client.PostAsync(Path, _content);
         var content = await response.Content.ReadFromJsonAsync<Response>();
 
         content

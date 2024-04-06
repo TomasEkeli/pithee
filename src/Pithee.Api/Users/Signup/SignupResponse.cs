@@ -1,4 +1,4 @@
-namespace Pithee.Api.Signup;
+namespace Pithee.Api.Users.Signup;
 
 public record SignupResponse(
     string Username);

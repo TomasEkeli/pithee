@@ -1,6 +1,6 @@
 namespace Pithee.Persistence;
 
-public interface ISchemaInitializer
+public interface IPersistenceInitializer
 {
     Task Initialize();
 }

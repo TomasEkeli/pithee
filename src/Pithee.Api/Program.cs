@@ -1,4 +1,5 @@
 using Pithee.Api;
+using Pithee.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,11 @@ app.UseHttpsRedirection();
 app.MapControllers();
 
 app.MapGet("/", () => "Pithee");
+
+var initDb =  app
+    .Services
+    .GetRequiredService<IPersistenceInitializer>();
+await initDb.Initialize();
 
 app.Run();
 

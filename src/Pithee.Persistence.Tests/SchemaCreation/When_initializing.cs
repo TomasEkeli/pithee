@@ -9,10 +9,10 @@ public class When_initializing : Given_a_database
     [Fact]
     public async Task It_creates_at_least_1_table()
     {
-        var initializer = new SchemaInitializer(
+        var initializer = new SchemaCreator(
             _context,
             [ new OneTable() ],
-            _loggerFactory.CreateLogger<SchemaInitializer>()
+            _loggerFactory.CreateLogger<SchemaCreator>()
         );
 
         await initializer.Initialize();

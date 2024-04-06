@@ -1,11 +1,10 @@
 using System.Data;
-using Microsoft.Extensions.Logging;
 using Npgsql;
 
 namespace Pithee.Persistence.Postgres;
 
 public partial class PostgresDataContext(
-    string _connectionString,
+    PostgresDataContext.DbConfig _config,
     ILogger<PostgresDataContext> _logger)
     : IDataContext
 {
@@ -13,19 +12,37 @@ public partial class PostgresDataContext(
     {
         LogMakingConnection(
             _logger,
-            _connectionString
+            _config
         );
 
-        return new NpgsqlConnection(_connectionString);
+        return new NpgsqlConnection(
+            _config.ConnectionString
+        );
     }
 
     [LoggerMessage(
         EventId = 1,
         Level = LogLevel.Debug,
-        Message = "Making connection to {connectionString}"
+        Message = "Making connection"
     )]
     static partial void LogMakingConnection(
         ILogger logger,
-        string connectionString
+        [LogProperties] DbConfig connectionString
     );
+
+    public sealed record DbConfig(
+        string Host,
+        ushort Port,
+        string Database,
+        string Username,
+        string Password
+    )
+    {
+        public string ConnectionString =>
+            $@"Host={Host
+            };Port={Port
+            };Database={Database
+            };Username={Username
+            };Password={Password}";
+    }
 }

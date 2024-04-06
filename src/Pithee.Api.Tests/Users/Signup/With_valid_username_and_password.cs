@@ -7,12 +7,14 @@ public class With_valid_username_and_password
     : Given_an_api
 {
     const string Path = "/users/signup";
+    readonly string _username = $"testuser-{Guid.NewGuid()}";
+    readonly string _password = Guid.NewGuid().ToString();
     readonly Credentials _payload;
     readonly JsonContent _content;
 
     public With_valid_username_and_password()
     {
-        _payload = new("testuser", "password");
+        _payload = new(_username, _password);
         _content = JsonContent.Create(_payload);
     }
 
@@ -30,7 +32,11 @@ public class With_valid_username_and_password
     {
         var response = await _client.PostAsync(Path, _content);
 
-        response.Headers.Location.Should().Be("/users/testuser");
+        response
+            .Headers
+            .Location
+            .Should()
+            .Be($"/users/{_username}");
     }
 
     [Fact]
@@ -44,8 +50,6 @@ public class With_valid_username_and_password
             .Should()
             .Be(_payload.Username);
     }
-
-
 
     record Credentials(string Username, string Password);
 

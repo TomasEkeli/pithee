@@ -1,6 +1,9 @@
+using Pithee.CodeGen;
+
 namespace Pithee.Domain.Users;
 
-public record User(
+[GenerateCtor]
+public partial record User(
     string Id,
     string PreferredUsername,
     string PasswordHash,

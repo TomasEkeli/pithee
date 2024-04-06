@@ -1,13 +1,12 @@
 using Dapper;
-using Microsoft.Extensions.Logging;
 
 namespace Pithee.Persistence.Postgres;
 
-public partial class SchemaInitializer(
+public partial class SchemaCreator(
     IDataContext context,
     IEnumerable<IDefineSchema> schemas,
-    ILogger<SchemaInitializer> logger)
-    : ISchemaInitializer
+    ILogger<SchemaCreator> logger)
+    : ISchemaCreator
 {
     public async Task Initialize()
     {
@@ -21,11 +20,19 @@ public partial class SchemaInitializer(
             .ThenBy(s => s.Version)
             .ToList();
 
-        using var connection = context.CreateConnection();
-
-        foreach (var schema in ordered)
+        try
         {
-            await connection.ExecuteAsync(schema.Script);
+            using var connection = context.CreateConnection();
+
+            foreach (var schema in ordered)
+            {
+                await connection.ExecuteAsync(schema.Script);
+            }
+        }
+        catch (System.Exception ex)
+        {
+            LogErrorInitializing(logger, ex);
+            throw;
         }
     }
 
@@ -37,5 +44,15 @@ public partial class SchemaInitializer(
     static partial void LogInitializing(
         ILogger logger,
         int numberofSchemas
+    );
+
+    [LoggerMessage(
+        EventId = 2,
+        Level = LogLevel.Critical,
+        Message = "Error initializing schema"
+    )]
+    static partial void LogErrorInitializing(
+        ILogger logger,
+        Exception ex
     );
 }

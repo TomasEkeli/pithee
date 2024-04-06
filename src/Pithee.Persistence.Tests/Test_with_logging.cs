@@ -1,6 +1,6 @@
 using MELT;
 
-namespace Pithee.Persistence.Tests.SchemaCreation;
+namespace Pithee.Persistence.Tests;
 
 public abstract class Test_with_logging
 {

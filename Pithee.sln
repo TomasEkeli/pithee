@@ -5,9 +5,13 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{31A19868-FF96-4E94-A0E7-7582B256D026}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pithee.Api", "src/Pithee.Api/Pithee.Api.csproj", "{9DFBAB17-D78D-4319-87B6-DA7D599237CF}"
+	Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pithee.Api", "src\Pithee.Api\Pithee.Api.csproj", "{9DFBAB17-D78D-4319-87B6-DA7D599237CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pithee.Api.Tests", "src/Pithee.Api.Tests/Pithee.Api.Tests.csproj", "{EDC4D931-FC5B-4BD2-A452-A2FEAAD46C92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pithee.Api.Tests", "src\Pithee.Api.Tests\Pithee.Api.Tests.csproj", "{EDC4D931-FC5B-4BD2-A452-A2FEAAD46C92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pithee.Domain", "src\Pithee.Domain\Pithee.Domain.csproj", "{B3265DD9-046F-480B-807C-3D9EB0296131}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pithee.Persistence", "src\Pithee.Persistence\Pithee.Persistence.csproj", "{D465F502-B32B-41A1-A9CF-C37D745D5B34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,9 +30,19 @@ Global
 		{EDC4D931-FC5B-4BD2-A452-A2FEAAD46C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDC4D931-FC5B-4BD2-A452-A2FEAAD46C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDC4D931-FC5B-4BD2-A452-A2FEAAD46C92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3265DD9-046F-480B-807C-3D9EB0296131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3265DD9-046F-480B-807C-3D9EB0296131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3265DD9-046F-480B-807C-3D9EB0296131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3265DD9-046F-480B-807C-3D9EB0296131}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D465F502-B32B-41A1-A9CF-C37D745D5B34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D465F502-B32B-41A1-A9CF-C37D745D5B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D465F502-B32B-41A1-A9CF-C37D745D5B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D465F502-B32B-41A1-A9CF-C37D745D5B34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9DFBAB17-D78D-4319-87B6-DA7D599237CF} = {31A19868-FF96-4E94-A0E7-7582B256D026}
 		{EDC4D931-FC5B-4BD2-A452-A2FEAAD46C92} = {31A19868-FF96-4E94-A0E7-7582B256D026}
+		{B3265DD9-046F-480B-807C-3D9EB0296131} = {31A19868-FF96-4E94-A0E7-7582B256D026}
+		{D465F502-B32B-41A1-A9CF-C37D745D5B34} = {31A19868-FF96-4E94-A0E7-7582B256D026}
 	EndGlobalSection
 EndGlobal

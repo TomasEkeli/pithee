@@ -1,4 +1,5 @@
 using Pithee.Api.Users.Signup;
+using Pithee.Persistence.Users;
 
 namespace Pithee.Api.Users;
 
@@ -27,9 +28,12 @@ public class UsersHandler(
         return new(user.Username);
     }
 
-    public async Task<UserResponse?> GetUser(string username)
+    public async Task<UserResponse?> GetUser(
+        string username)
     {
-        var user = await _repository.Get(username);
+        var user = await _repository.Get(
+            username);
+
         if (user is null)
         {
             return null;

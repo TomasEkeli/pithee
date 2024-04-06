@@ -1,5 +1,6 @@
 using Pithee.Api.Users;
 using Pithee.Api.Webfinger;
+using Pithee.Persistence.Users;
 
 namespace Pithee.Api;
 

@@ -1,4 +1,6 @@
-namespace Pithee.Api.Users;
+using Pithee.Domain.Users;
+
+namespace Pithee.Persistence.Users;
 
 public interface IUsersRepository
 {

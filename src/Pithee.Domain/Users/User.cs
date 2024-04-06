@@ -1,4 +1,4 @@
-namespace Pithee.Api.Users;
+namespace Pithee.Domain.Users;
 
 public record User(
     string Username,

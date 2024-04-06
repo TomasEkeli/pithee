@@ -12,4 +12,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Pithee.Domain\Pithee.Domain.csproj" />
+    <ProjectReference Include="..\Pithee.Persistence\Pithee.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -18,22 +18,31 @@ public class When_the_user_exists : Given_an_api
 {
     readonly string _username = "testuser-" + Guid.NewGuid();
 
-    public When_the_user_exists()
+    async Task<HttpResponseMessage> SignupUser(
+        string username,
+        string password)
     {
-    }
-
-    async Task<HttpResponseMessage> SignupUser(string username, string password)
-    {
-        return await _client.PostAsJsonAsync("/signup", new { username, password });
+        return await _client.PostAsJsonAsync(
+            "/signup",
+            new { username, password }
+        );
     }
 
     [Fact]
     public async Task It_responds_with_a_200_ok()
     {
-        await SignupUser(_username, "password");
+        var signup_response = await SignupUser(
+            username: _username,
+            password: Guid.NewGuid().ToString()
+        );
 
-        var response = await _client.GetAsync("/users/" + _username);
+        var response = await _client.GetAsync(
+            signup_response.Headers.Location!.ToString()
+        );
 
-        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        response
+            .StatusCode
+            .Should()
+            .Be(HttpStatusCode.OK);
     }
 }

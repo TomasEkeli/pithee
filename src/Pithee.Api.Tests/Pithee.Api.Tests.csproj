@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Pithee.Api\Pithee.Api.csproj" />
+    <ProjectReference Include="../Pithee.Api/Pithee.Api.csproj" />
   </ItemGroup>
 
 </Project>

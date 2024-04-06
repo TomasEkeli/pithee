@@ -1,16 +1,27 @@
+using Pithee.Api.Users;
+
 namespace Pithee.Api.Signup;
 
 public interface ISignupHandler
 {
-    Task<SignupResponse> Signup(SignupRequest request);
+    Task<SignupResponse> Signup(
+        SignupRequest request);
 }
 
-public class SignupHandler : ISignupHandler
+public class SignupHandler(
+    IUsersRepository _repository)
+    : ISignupHandler
 {
-    public Task<SignupResponse> Signup(SignupRequest request)
+    public async Task<SignupResponse> Signup(
+        SignupRequest request)
     {
-        SignupResponse response = new(request.Username);
+        var user = await _repository.Set(
+            new(
+                request.Username,
+                request.Password
+            )
+        );
 
-        return Task.FromResult(response);
+        return new(user.Username);
     }
 }

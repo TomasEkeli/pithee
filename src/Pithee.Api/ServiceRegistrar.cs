@@ -1,4 +1,5 @@
 using Pithee.Api.Signup;
+using Pithee.Api.Users;
 using Pithee.Api.Webfinger;
 
 namespace Pithee.Api;
@@ -10,8 +11,10 @@ public static class ServiceRegistrar
     )
     {
         services
+            .AddSingleton<IUsersRepository, UsersRepository>()
             .AddTransient<IWebFingerHandler, WebFingerHandler>()
-            .AddTransient<ISignupHandler, SignupHandler>();
+            .AddTransient<ISignupHandler, SignupHandler>()
+            .AddTransient<IUsersHandler, UsersHandler>();
 
         return services;
     }

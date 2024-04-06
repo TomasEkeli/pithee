@@ -22,7 +22,7 @@ public class UsersRepository : IUsersRepository
 
     public Task<User> Set(User user)
     {
-        _users[user.Username] = user;
+        _users[user.PreferredUsername] = user;
         return Task.FromResult(user);
     }
 }

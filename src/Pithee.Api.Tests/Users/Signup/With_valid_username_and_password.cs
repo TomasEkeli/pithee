@@ -40,12 +40,14 @@ public class With_valid_username_and_password
         var content = await response.Content.ReadFromJsonAsync<Response>();
 
         content
-            !.Username
+            !.PreferredUsername
             .Should()
             .Be(_payload.Username);
     }
 
+
+
     record Credentials(string Username, string Password);
 
-    record Response(string Username);
+    record Response(string PreferredUsername);
 }

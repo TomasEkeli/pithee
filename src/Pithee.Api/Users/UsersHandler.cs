@@ -20,12 +20,15 @@ public class UsersHandler(
     {
         var user = await _repository.Set(
             new(
-                request.Username,
-                request.Password
+                Id: "https://pithee.example.net/users/" + request.Username,
+                PreferredUsername: request.Username,
+                PasswordHash: request.Password,
+                PrivateKey: Guid.NewGuid().ToString(),
+                PublicKey: Guid.NewGuid().ToString()
             )
         );
 
-        return new(user.Username);
+        return new(user.PreferredUsername);
     }
 
     public async Task<UserResponse?> GetUser(
@@ -38,6 +41,14 @@ public class UsersHandler(
         {
             return null;
         }
-        return new(user.Username);
+        return new(
+            user.Id,
+            user.PreferredUsername,
+            PublicKey: new(
+                Id: user.PublicKey,
+                Owner: user.Id,
+                PublicKeyPem: user.PublicKey
+            )
+        );
     }
 }

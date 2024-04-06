@@ -1,5 +1,9 @@
 namespace Pithee.Domain.Users;
 
 public record User(
-    string Username,
-    string Password = "password");
+    string Id,
+    string PreferredUsername,
+    string PasswordHash,
+    string PrivateKey,
+    string PublicKey
+);

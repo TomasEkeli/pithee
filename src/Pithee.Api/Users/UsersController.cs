@@ -17,7 +17,7 @@ public class UsersController(IUsersHandler _handler) : ControllerBase
             .Signup(request);
 
         return Created(
-            $"/users/{response.Username}",
+            $"/users/{response.PreferredUsername}",
             response);
     }
 
@@ -33,7 +33,7 @@ public class UsersController(IUsersHandler _handler) : ControllerBase
             return NotFound();
         }
 
-        return Ok(new UserResponse(user.Username));
+        return Ok(user);
     }
 
 }

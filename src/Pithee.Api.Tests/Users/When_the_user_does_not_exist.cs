@@ -23,7 +23,7 @@ public class When_the_user_exists : Given_an_api
         string password)
     {
         return await _client.PostAsJsonAsync(
-            "/signup",
+            "/users/signup",
             new { username, password }
         );
     }

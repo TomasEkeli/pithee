@@ -6,7 +6,7 @@ namespace Pithee.Api.Users;
 [Route("/users")]
 public class UsersController(IUsersHandler _handler) : ControllerBase
 {
-    [HttpPost("/signup")]
+    [HttpPost("signup")]
     [ProducesResponseType<SignupResponse>(
         201,
         "application/json")]

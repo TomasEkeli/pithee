@@ -5,7 +5,7 @@ Accept: application/json
 
 ### signup
 #@signup
-POST {{Api_HostAddress}}/signup
+POST {{Api_HostAddress}}/users/signup
 Content-Type: application/json
 Accept: application/json
 

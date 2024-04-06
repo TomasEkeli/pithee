@@ -6,7 +6,7 @@ namespace Pithee.Api.Tests.Users.Signup;
 public class With_valid_username_and_password
     : Given_an_api
 {
-    const string Path = "/signup";
+    const string Path = "/users/signup";
     readonly Credentials _payload;
     readonly JsonContent _content;
 

@@ -1,12 +1,11 @@
 using ArchUnitNET.Domain;
 using ArchUnitNET.Domain.Extensions;
 using ArchUnitNET.Fluent;
-using ArchUnitNET.Fluent.Slices;
 using ArchUnitNET.xUnit;
 
 namespace Pithee.ArchitectureTests;
 
-public class Given_the_domain_layer : Given_the_architcture
+public class In_the_domain_layer : Given_the_layers
 {
     [Fact]
     public void Classes_have_a_parameterless_constructor()

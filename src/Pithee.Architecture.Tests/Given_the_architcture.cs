@@ -4,7 +4,7 @@ using ArchUnitNET.Loader;
 
 namespace Pithee.ArchitectureTests;
 
-public abstract class Given_the_architcture : Given_the_assemblies
+public abstract class Given_the_layers : Given_the_assemblies
 {
     protected static readonly Architecture PritheeArchitecture =
         new ArchLoader()

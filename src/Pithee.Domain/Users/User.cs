@@ -3,7 +3,7 @@ using Pithee.CodeGen;
 namespace Pithee.Domain.Users;
 
 [GenerateCtor]
-public partial record User(
+public sealed partial record User(
     string Id,
     string PreferredUsername,
     string PasswordHash,

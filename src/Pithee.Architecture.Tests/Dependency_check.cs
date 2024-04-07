@@ -59,17 +59,4 @@ public class Given_the_domain_layer : Given_the_architcture
             .NotDependOnAny(PersistenceLayer)
             .Check(PritheeArchitecture);
     }
-
-    [Fact(Skip = "there are some cycles")]
-    public void No_circular_dependencies()
-    {
-        var no_cycles = SliceRuleDefinition
-            .Slices()
-            .Matching("Pithee.(*)")
-            .Should()
-            .BeFreeOfCycles();
-
-        no_cycles.Check(PritheeArchitecture);
-
-    }
 }

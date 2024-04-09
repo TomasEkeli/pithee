@@ -8,7 +8,6 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "ms-dotnettools.csdevkit",
                 "kahole.magit",
                 "yzhang.markdown-all-in-one",
                 "bierner.markdown-mermaid",

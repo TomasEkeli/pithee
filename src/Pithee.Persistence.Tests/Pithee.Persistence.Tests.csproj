@@ -1,25 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\xunit_project.props" />
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-
-    <IsPackable>false</IsPackable>
-    <IsTestProject>true</IsTestProject>
+    <RootNamespace>Pithee.Persistence.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="coverlet.collector" Version="6.0.0" />
     <PackageReference Include="dapper" Version="2.1.35" />
-    <PackageReference Include="fluentassertions" Version="6.12.0" />
-    <PackageReference Include="MELT" Version="0.9.0" />
-    <PackageReference Include="MELT.XUnit" Version="0.9.0" />
     <PackageReference Include="microsoft.extensions.logging" Version="8.0.0" />
     <PackageReference Include="microsoft.extensions.logging.abstractions" Version="8.0.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-    <PackageReference Include="xunit" Version="2.5.3" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
   </ItemGroup>
 
   <ItemGroup>

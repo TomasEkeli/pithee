@@ -8,7 +8,7 @@ public class When_the_user_exists : Given_an_api
     const string Domain = "pithee.example.net";
     readonly string _username = "testuser-" + Guid.NewGuid();
 
-    async Task<HttpResponseMessage?> Signup(
+    async Task<HttpResponseMessage> Signup(
         string username,
         string password)
     => await _client.PostAsJsonAsync(
@@ -16,7 +16,7 @@ public class When_the_user_exists : Given_an_api
             new { username, password }
         );
 
-    async Task<UserResponse?> SignupAndGetUser(
+    async Task<UserResponse> SignupAndGetUser(
         string username,
         string password)
     {

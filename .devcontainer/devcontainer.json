@@ -16,7 +16,8 @@
                 "mtxr.sqltools",
                 "mtxr.sqltools-driver-pg",
                 "humao.rest-client",
-                "ryanluker.vscode-coverage-gutters"
+                "ryanluker.vscode-coverage-gutters",
+                "mutantdino.resourcemonitor"
             ]
         }
     },

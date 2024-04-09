@@ -4,6 +4,8 @@
 ## this script will watch for changes in the test project and run the tests
 ## it wil also generate coverage files
 
+echo "Testing $(pwd)"
+
 dotnet watch test \
     --nologo \
     --no-restore \

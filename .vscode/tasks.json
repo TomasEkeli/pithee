@@ -11,12 +11,178 @@
                 "--no-restore",
                 "--no-hot-reload"
             ],
+            "presentation": {
+                "clear": true,
+                "reveal": "always",
+                "showReuseMessage": false,
+                "panel": "dedicated","focus": false,
+                "revealProblems": "onProblem",
+                "echo": false,
+                "group": "test"
+            },
             "options": {
                 "cwd": "${workspaceFolder}/src/Pithee.Api"
             },
             "problemMatcher": [
 
             ]
+        },
+        {
+            "label": "Watch Api.Tests",
+            "type": "shell",
+            "group": "test",
+            "presentation": {
+                "clear": true,
+                "reveal": "always",
+                "showReuseMessage": false,
+                "panel": "dedicated","focus": false,
+                "revealProblems": "onProblem",
+                "echo": false,
+                "group": "test"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/src/Pithee.Api.Tests"
+            },
+            "command": "../../scripts/tasks/watch-test.sh",
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "tests",
+                "fileLocation": "absolute",
+                "pattern": [
+                    {
+                        "regexp": "^\\s*at (?:[^.]+\\.)+([^()]+)\\(\\) in (.*):line (\\d+)$",
+                        "message": 1,
+                        "file": 2,
+                        "line": 3,
+                    }
+                ],
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "Starting test execution",
+                    "endsPattern": "Waiting for a file to change"
+                }
+            }
+        },
+        {
+            "label": "Watch Architecture.Tests",
+            "type": "shell",
+            "group": "test",
+            "presentation": {
+                "clear": true,
+                "reveal": "always",
+                "showReuseMessage": false,
+                "panel": "dedicated","focus": false,
+                "revealProblems": "onProblem",
+                "echo": false,
+                "group": "test"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/src/Pithee.Architecture.Tests"
+            },
+            "command": "../../scripts/tasks/watch-test.sh",
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "tests",
+                "fileLocation": "absolute",
+                "pattern": [
+                    {
+                        "regexp": "^\\s*at (?:[^.]+\\.)+([^()]+)\\(\\) in (.*):line (\\d+)$",
+                        "message": 1,
+                        "file": 2,
+                        "line": 3,
+                    }
+                ],
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "Starting test execution",
+                    "endsPattern": "Waiting for a file to change"
+                }
+            }
+        },
+        {
+            "label": "Watch Domain.Tests",
+            "type": "shell",
+            "group": "test",
+            "presentation": {
+                "clear": true,
+                "reveal": "always",
+                "showReuseMessage": false,
+                "panel": "dedicated","focus": false,
+                "revealProblems": "onProblem",
+                "echo": false,
+                "group": "test"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/src/Pithee.Domain.Tests"
+            },
+            "command": "../../scripts/tasks/watch-test.sh",
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "tests",
+                "fileLocation": "absolute",
+                "pattern": [
+                    {
+                        "regexp": "^\\s*at (?:[^.]+\\.)+([^()]+)\\(\\) in (.*):line (\\d+)$",
+                        "message": 1,
+                        "file": 2,
+                        "line": 3,
+                    }
+                ],
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "Starting test execution",
+                    "endsPattern": "Waiting for a file to change"
+                }
+            }
+        },
+        {
+            "label": "Watch Persistence.Tests",
+            "type": "shell",
+            "group": "test",
+            "presentation": {
+                "clear": true,
+                "reveal": "always",
+                "showReuseMessage": false,
+                "panel": "dedicated","focus": false,
+                "revealProblems": "onProblem",
+                "echo": false,
+                "group": "test"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/src/Pithee.Persistence.Tests"
+            },
+            "command": "../../scripts/tasks/watch-test.sh",
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "tests",
+                "fileLocation": "absolute",
+                "pattern": [
+                    {
+                        "regexp": "^\\s*at (?:[^.]+\\.)+([^()]+)\\(\\) in (.*):line (\\d+)$",
+                        "message": 1,
+                        "file": 2,
+                        "line": 3,
+                    }
+                ],
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "Starting test execution",
+                    "endsPattern": "Waiting for a file to change"
+                }
+            }
+        },
+        {
+            "label": "Watch all tests",
+            "dependsOn": [
+                "Watch Api.Tests",
+                "Watch Architecture.Tests",
+                "Watch Domain.Tests",
+                "Watch Persistence.Tests"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
         }
     ]
 }

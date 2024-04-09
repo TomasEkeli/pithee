@@ -175,7 +175,6 @@
             "label": "Watch all tests",
             "dependsOn": [
                 "Watch Api.Tests",
-                "Watch Architecture.Tests",
                 "Watch Domain.Tests",
                 "Watch Persistence.Tests"
             ],

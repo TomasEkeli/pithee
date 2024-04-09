@@ -12,4 +12,4 @@ dotnet watch test \
     /property:GenerateFullPaths=true \
     /p:CollectCoverage=true \
     /p:CoverletOutputFormat=cobertura \
-    /p:CoverletOutput=./TestResults/ \
+    /p:CoverletOutput=../../TestResults/

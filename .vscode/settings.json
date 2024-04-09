@@ -21,5 +21,13 @@
             "username": "postgres",
             "password": "postgres"
         }
+    ],
+    "coverage-gutters.coverageFileNames": [
+        "coverage.json",
+        "lcov.info",
+        "cov.xml",
+        "coverage.xml",
+        "jacoco.xml",
+        "coverage.cobertura.xml"
     ]
 }

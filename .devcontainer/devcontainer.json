@@ -16,7 +16,8 @@
                 "hoffs.dotnet-secret-explorer",
                 "mtxr.sqltools",
                 "mtxr.sqltools-driver-pg",
-                "humao.rest-client"
+                "humao.rest-client",
+                "ryanluker.vscode-coverage-gutters"
             ]
         }
     },
@@ -36,7 +37,7 @@
 	// }
 
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "dotnet restore"
+    "postCreateCommand": "chmod +x /workspaces/.devcontainer/scripts/*.sh && /workspaces/.devcontainer/scripts/post-create.sh"
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
